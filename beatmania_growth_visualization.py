@@ -122,7 +122,7 @@ for check_file in file_list:
     # after_dfをcheckedにコピーして名前をlatest.csvにして上書き
     after_df.to_csv('data/checked/'+check_file.split('/')[-1])
     after_df.to_csv(latest_file)
-    # os.remove(file_list[1])
+    os.remove(check_file)
 
 growth_df.reset_index(drop=True).to_csv(growth_file)
 
