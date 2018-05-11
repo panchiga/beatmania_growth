@@ -33,7 +33,7 @@ latest_file = "data/latest.csv"
 growth_file = "data/result/growth.csv"
 
 growth_df = pd.read_csv(growth_file)
-growth_df = growth_df[['Title','Difficult','Level','Scere','PGreat','Great','MissCount','ClearType','ClearRate','PlayDate']]
+growth_df = growth_df[['Title','Difficult','Level','Score','PGreat','Great','MissCount','ClearType','ClearRate','PlayDate']]
 
 # 連結済みのデータフレームで指定した列に差が有るもののIDリストを返す
 def diff_df(df, difficult):
@@ -72,7 +72,7 @@ def extract_diff(df, merged_df, difficult):
     diff = diff.rename(columns={
         'タイトル': 'Title',
         difficult+' 難易度':'Level',
-        difficult+' EXスコア':'Scere',
+        difficult+' EXスコア':'Score',
         difficult+' PGreat':'PGreat',
         difficult+' Great':'Great',
         difficult+' ミスカウント':'MissCount',
@@ -95,7 +95,7 @@ def fetch_growth(df,merged):
 
     all_diff = pd.concat([n_diff,h_diff,a_diff])
 
-    all_diff = all_diff[['Title','Difficult','Level','Scere','PGreat','Great','MissCount','ClearType','ClearRate','PlayDate']]
+    all_diff = all_diff[['Title','Difficult','Level','Score','PGreat','Great','MissCount','ClearType','ClearRate','PlayDate']]
     all_diff['PlayDate'] = all_diff['PlayDate'].dt.date
 
     return all_diff
