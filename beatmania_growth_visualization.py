@@ -139,7 +139,7 @@ growth_pivot = growth_df.pivot_table(values = ['Difficult'],
 plt.figure()
 
 # 濃いほど強い
-growth_pivot.plot(kind='area', colormap='Reds',figsize=(18, 8))
+growth_pivot.plot(kind='area',colormap='Reds',linewidth=0,figsize=(18, 8))
 
 plt.savefig('data/result/mygrowth.png')
 plt.close('all')
